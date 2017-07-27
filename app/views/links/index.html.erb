@@ -1,5 +1,5 @@
 <h1>Hot Reads!!!</h1>
 
 <% @links.each.with_index do |link, i| %>
-  <%= i + 1 %>. <%= link.url %>
+  <p><%= i + 1 %>. <%= link_to link.url, link.url %></p>
 <% end %>
