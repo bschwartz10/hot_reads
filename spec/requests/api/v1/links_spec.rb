@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 describe "Links API" do
-  xit "can post a link" do
+  it "can post a link" do
 
-    link_data = {url: 'https://google.com'}
+    link_data = {link: {url: 'https://google.com'}}
 
-    post '/api/v1/links', link_data
+    post '/api/v1/links', params: link_data
 
     expect(response).to be_success
 
@@ -13,6 +13,5 @@ describe "Links API" do
 
     expect(Link.last.url).to eq('https://google.com')
     expect(Link.all.count).to eq(1)
-    expect(Link.last.count).to eq(1)
   end
 end
