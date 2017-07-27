@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe "Links API" do
-  it "can post a link" do
+  xit "can post a link" do
 
     link_data = {url: 'https://google.com'}
-require "pry"; binding.pry
+
     post '/api/v1/links', link_data
 
     expect(response).to be_success
