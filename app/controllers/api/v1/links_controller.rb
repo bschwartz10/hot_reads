@@ -10,10 +10,10 @@ class Api::V1::LinksController < ApplicationController
     link = Link.find_or_initialize_by(link_params)
       if link.persisted?
         link.update(count: link.count += 1)
-        render json: link
+        render json: Link.hot_reads
       else
         link.save
-        render json: link
+        render json: Link.hot_reads
       end
   end
 
