@@ -2,10 +2,14 @@ class Api::V1::LinksController < ApplicationController
   protect_from_forgery with: :null_session
 
   def create
-    link = Link.new(link_params)
-    if link.save
-      render json: link
-    end
+    link = Link.find_or_initialize_by(link_params)
+      if link.persisted?
+        link.update(count: link.count += 1)
+        render json: link
+      else
+        link.save
+        render json: link
+      end
   end
 
   private
